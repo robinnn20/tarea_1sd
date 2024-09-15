@@ -1,0 +1,30 @@
+version: '3'
+services:
+  redis-part1:
+    image: bitnami/redis:latest
+    ports:
+      - "6380:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  redis-part2:
+    image: bitnami/redis:latest
+    ports:
+      - "6381:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  grpc-server:
+    build: ./grpc_server
+    ports:
+      - "50051:50051"
+
+  api:
+    build: ./api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis-part1
+      - redis-part2
+      - grpc-server
+
