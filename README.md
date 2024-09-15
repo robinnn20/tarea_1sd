@@ -6,3 +6,24 @@ Descargar liberia
 
 ```bash
 pip install requests
+```
+instalara docker
+```bash
+sudo apt-get install docker-ce
+```
+Instalar docker-compose
+```bash
+sudo apt install docker-compose
+```
+Construir los contenedores
+```bash
+sudo docker-compose build 
+```
+Inicializar los contenedores
+```bash
+sudo docker-compose up -d 
+```
+Iniciar el generador de solicitudes
+```bash
+sudo python3 traffic_generator.py
+
